@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class QeFont:
     '''Classe abstracta que permet obtenir dades d'una font de dades definida
        Les fonts poden ser (per exemple, i sense excloure'n d'altres):
@@ -17,4 +18,4 @@ class QeFont:
 
     @abstractmethod
     def getTaula(self):
-        pass 
+        pass

@@ -4,7 +4,7 @@ from QeFont import QeFont
 from abc import ABC, abstractmethod
 #No hauria de ser instanciada
 class QeView(QWidget):
-    def __init__(self, font: QeFont, tempsAct=None):
+    def __init__(self, font: QeFont, tempsAct: int=None):
         '''Construeix una QeView '''
         super().__init__()
         self._lay=QVBoxLayout(self)

@@ -1,6 +1,6 @@
 from QeView import QeView
 from QeFont import QeFont
-from qgis.PyQt.QtWidgets import QLabel
+from PyQt5.QtWidgets import QLabel
 class QeLabel(QeView):
     def __init__(self, font: QeFont, titol: str, tempsAct: int=None):
         super().__init__(font,tempsAct)
@@ -13,7 +13,7 @@ class QeLabel(QeView):
 
 if __name__=='__main__':
     import sys
-    from qgis.PyQt.QtWidgets import QApplication
+    from PyQt5.QtWidgets import QApplication
     from QeSQL import QeSQL
     app = QApplication(sys.argv)
     font=QeSQL({'Database':'QSQLITE','DatabaseName':'exemple.db'},consultaUnic='select salari from taula where nom="Oriol"; ')

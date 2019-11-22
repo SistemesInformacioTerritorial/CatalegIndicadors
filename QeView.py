@@ -1,5 +1,6 @@
-from qgis.PyQt.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QWidget, QVBoxLayout
 from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import QFont
 from QeFont import QeFont
 from abc import ABC, abstractmethod
 #No hauria de ser instanciada
@@ -14,6 +15,8 @@ class QeView(QWidget):
             self._timer=QTimer(self)
             self._timer.timeout.connect(self.setDades)
             self._temps=tempsAct
+        self.setFont(QFont('Arial',12))
+        self.setStyleSheet('color: #38474f; background: #f9f9f9')
         #Definicions d'estil?
     
     @abstractmethod

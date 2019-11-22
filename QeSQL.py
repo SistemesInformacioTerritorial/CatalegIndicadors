@@ -1,5 +1,5 @@
 from QeFont import QeFont
-from qgis.PyQt.QtSql import QSqlDatabase
+from PyQt5.QtSql import QSqlDatabase
 
 class BaseDadesInvalida(ValueError):
     pass

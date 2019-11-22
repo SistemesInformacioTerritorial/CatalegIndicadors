@@ -8,7 +8,6 @@ class QeLabel(QeView):
         self._lay.addWidget(self._lbl)
         self.setDades()
     def setDades(self):
-        print('setDades')
         self._lbl.setText(str(self._font.getUnic()))
 
 if __name__=='__main__':

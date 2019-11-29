@@ -1,13 +1,22 @@
 from Vistes.QeLabel import QeLabel
 from Fonts.QeFont import QeFont
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
 import urllib
 
 
 class QeImatge(QeLabel):
-    def _posaImatge(self, pixmap):
-        self._lbl.setPixmap(pixmap)
-    pass
+    def setPixmap(self,pixmap):
+        self._pixmap=pixmap
+        self._posaImatge()
+    def _posaImatge(self):
+        self._lbl.setPixmap(self.pixmapEscalat())
+    def resizeEvent(self, event):
+        if hasattr(self,'_pixmap'):
+            self._posaImatge()
+        pass
+    def pixmapEscalat(self):
+        return self._pixmap.scaled(self.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
 
 class QeImatgeURL(QeImatge):
@@ -18,7 +27,7 @@ class QeImatgeURL(QeImatge):
         data = urllib.request.urlopen(req).read()
         pixmap = QPixmap()
         pixmap.loadFromData(data)
-        self._posaImatge(pixmap)
+        self.setPixmap(pixmap)
 
 
 class QeImatgeFile(QeImatge):

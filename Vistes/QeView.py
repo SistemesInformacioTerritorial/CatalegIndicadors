@@ -33,9 +33,12 @@ class QeView(QWidget):
 
     def show(self):
         super().show()
+        # if hasattr(self, '_timer'):
+        #     self._timer.start(self._temps)
+    def showEvent(self,event):
+        super().showEvent(event)
         if hasattr(self, '_timer'):
             self._timer.start(self._temps)
-
     def hide(self):
         super().hide()
         if hasattr(self, '_timer'):

@@ -1,13 +1,21 @@
 from QeView import QeView
 from Fonts.QeFont import QeFont
 from PyQt5.QtWidgets import QLabel, QTableWidget, QTableWidgetItem, QSizePolicy
+from PyQt5.QtCore import pyqtSignal, Qt
 
 
 class QeTaula(QeView):
+    elementclicat = pyqtSignal(object)
+    elementdobleclicat = pyqtSignal(object)
+
     def __init__(self, font: QeFont, titol: str, tempsAct: int = None):
         super().__init__(font, tempsAct)
         self._lay.addWidget(QLabel(titol))
         self._taula = QTableWidget()
+        self._taula.itemClicked.connect(
+            lambda x: self.elementclicat.emit(x.data(Qt.DisplayRole)))
+        self._taula.itemDoubleClicked.connect(
+            lambda x: self.elementdobleclicat.emit(x.data(Qt.DisplayRole)))
         self.setDades()
         self._lay.addWidget(self._taula)
 
@@ -30,5 +38,7 @@ if __name__ == '__main__':
     font = QeSQL({'Database': 'QSQLITE', 'DatabaseName': 'exemple.db'},
                  consultaTaula='select nom, salari from taula;')
     taula = QeTaula(font, 'Treballadors', 10000)
+    taula.elementclicat.connect(lambda x: print(x, 'clicat'))
+    taula.elementdobleclicat.connect(lambda x: print(x, 'doble clicat'))
     taula.show()
     sys.exit(app.exec_())

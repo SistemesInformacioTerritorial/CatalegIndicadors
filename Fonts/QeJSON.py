@@ -1,4 +1,4 @@
-from QeFont import QeFont
+from Fonts.QeFont import QeFont
 import json
 from urllib.request import urlopen
 

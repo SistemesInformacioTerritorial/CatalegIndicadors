@@ -1,5 +1,5 @@
 from QeView import QeView
-from QeFont import QeFont
+from Fonts.QeFont import QeFont
 from PyQt5.QtWidgets import QLabel, QTableWidget, QTableWidgetItem, QSizePolicy
 
 
@@ -24,7 +24,7 @@ class QeTaula(QeView):
 if __name__ == '__main__':
     import sys
     from PyQt5.QtWidgets import QApplication
-    from QeSQL import QeSQL
+    from Fonts.QeSQL import QeSQL
     app = QApplication(sys.argv)
     # Obtenim el salari del treballador Oriol. Actualitzem cada 10000 ms (10 segons)
     font = QeSQL({'Database': 'QSQLITE', 'DatabaseName': 'exemple.db'},

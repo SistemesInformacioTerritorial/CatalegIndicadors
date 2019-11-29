@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QFont
-from QeFont import QeFont
+from Fonts.QeFont import QeFont
 from abc import ABC, abstractmethod
 
 
@@ -16,6 +16,7 @@ class QeView(QWidget):
         '''Construeix una QeView '''
         super().__init__()
         self._lay = QVBoxLayout(self)
+        self._lay.setContentsMargins(0,0,0,0)
         self.setLayout(self._lay)
         self._font = font
         if tempsAct is not None:

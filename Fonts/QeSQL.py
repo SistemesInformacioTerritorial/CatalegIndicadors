@@ -1,4 +1,4 @@
-from QeFont import QeFont
+from Fonts.QeFont import QeFont
 from PyQt5.QtSql import QSqlDatabase
 
 

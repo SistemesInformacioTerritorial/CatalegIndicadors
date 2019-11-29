@@ -1,12 +1,13 @@
 from QeView import QeView
-from QeFont import QeFont
+from Fonts.QeFont import QeFont
 from PyQt5.QtWidgets import QLabel
 
 
 class QeLabel(QeView):
-    def __init__(self, font: QeFont, titol: str, tempsAct: int = None):
+    def __init__(self, font: QeFont, titol: str = None, tempsAct: int = None):
         super().__init__(font, tempsAct)
-        self._lay.addWidget(QLabel(titol))
+        if titol is not None:
+            self._lay.addWidget(QLabel(titol))
         self._lbl = QLabel()
         self._lay.addWidget(self._lbl)
         self.setDades()

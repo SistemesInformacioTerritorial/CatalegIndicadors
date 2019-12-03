@@ -41,6 +41,8 @@
 ##
 #############################################################################
 
+#Codi agafat d'internet. Com que està sota una llicència lliure (BSD) es pot agafar
+#https://github.com/baoboa/pyqt5/blob/master/examples/layouts/flowlayout.py
 
 from PyQt5.QtCore import QPoint, QRect, QSize, Qt
 from PyQt5.QtWidgets import (QApplication, QLayout, QPushButton, QSizePolicy,
